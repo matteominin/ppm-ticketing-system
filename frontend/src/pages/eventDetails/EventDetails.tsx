@@ -1,7 +1,6 @@
 import Header from '../../components/header/Header';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { apiFetch } from '../../apiClient';
 
 interface Event {
     id: number;
@@ -24,6 +23,10 @@ const EventDetails = () => {
     const [error, setError] = useState<string>('');
     const [quantity, setQuantity] = useState<number>(1);
     const [message, setMessage] = useState<string>('');
+    const [name, setName] = useState<string>('');
+    const [surname, setSurname] = useState<string>('');
+
+    const navigate = useNavigate();
 
     const fetchEvent = async () => {
         try {
@@ -46,36 +49,30 @@ const EventDetails = () => {
         fetchEvent();
     }, [id]);
 
-    const handleReserve = async () => {
+    const handleReserve = () => {
         const token = localStorage.getItem('access_token');
         if (!token) {
             setMessage('You must be logged in to buy tickets.');
             return;
         }
 
-        try {
-            const res = await apiFetch(`${import.meta.env.VITE_API_URL}/reservations/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify({
-                    event: event?.id,
-                    quantity: quantity,
-                }),
-            });
-
-            if (res.ok) {
-                setMessage('Reservation successful!');
-                fetchEvent(); // Refresh available_tickets
-            } else {
-                const errorData = await res.json();
-                setMessage(errorData.detail || 'Failed to reserve tickets.');
-            }
-        } catch {
-            setMessage('Something went wrong. Try again.');
+        // Optionally validate name/surname if you plan to collect them on the checkout page
+        if (!name.trim() || !surname.trim()) {
+            setMessage('Please enter your name and surname.');
+            return;
         }
+
+        // Navigate to the checkout page with query params or use context/state
+        const params = new URLSearchParams({
+            quantity: quantity.toString(),
+            name,
+            surname
+        });
+
+        navigate({
+            pathname: `/checkout/${event?.id}`,
+            search: `?${params.toString()}`
+        });
     };
 
     return (
@@ -116,6 +113,30 @@ const EventDetails = () => {
 
                             {/* Ticket Purchase */}
                             <div className="mt-4">
+                                <label htmlFor="name" className="form-label">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    className="form-control mb-2"
+                                    value={name}
+                                    onChange={(e) => {
+                                        setMessage('');
+                                        setName(e.target.value)
+                                    }}
+                                    placeholder="Enter your name"
+                                />
+                                <label htmlFor="surname" className="form-label">Surname</label>
+                                <input
+                                    type="text"
+                                    id="surname"
+                                    className="form-control mb-2"
+                                    value={surname}
+                                    onChange={(e) => {
+                                        setMessage('');
+                                        setSurname(e.target.value)
+                                    }}
+                                    placeholder="Enter your surname"
+                                />
                                 <label htmlFor="quantity" className="form-label">Quantity</label>
                                 <input
                                     type="number"
@@ -124,7 +145,10 @@ const EventDetails = () => {
                                     min="1"
                                     max={event.available_tickets || 1}
                                     value={quantity}
-                                    onChange={(e) => setQuantity(Number(e.target.value))}
+                                    onChange={(e) => {
+                                        setMessage('');
+                                        setQuantity(Number(e.target.value))
+                                    }}
                                 />
                                 <button className="btn btn-primary mt-2" onClick={handleReserve}>
                                     Buy Ticket
@@ -132,7 +156,10 @@ const EventDetails = () => {
                             </div>
 
                             {message && (
-                                <div className="alert alert-info mt-3" role="alert">
+                                <div
+                                    className={`alert mt-3 ${message.toLowerCase().includes('successful') ? 'alert-success' : 'alert-danger'}`}
+                                    role="alert"
+                                >
                                     {message}
                                 </div>
                             )}

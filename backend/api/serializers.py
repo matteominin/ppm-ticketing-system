@@ -6,13 +6,23 @@ class EventDetailSerializer(serializers.ModelSerializer):
         model = Event
         fields = '__all__'
 
-class EventListSerializer(serializers.ModelSerializer):
+class EventSummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ('id', 'name', 'start_time', 'end_time', 'location', 'price')
+        fields = ('id', 'name', 'description', 'start_time', 'end_time', 'location', 'price')
     
 class ReservationSerializer(serializers.ModelSerializer):
+    event = EventSummarySerializer(read_only=True)
+    event_id = serializers.PrimaryKeyRelatedField(
+        queryset=Event.objects.all(),
+        source='event',
+        write_only=True
+    )
+
     class Meta:
         model = Reservation
-        fields = '__all__'
-        read_only_fields = ['user']
+        fields = [
+            'id', 'event', 'event_id', 'user',
+            'name', 'surname', 'quantity', 'created_at'
+        ]
+        read_only_fields = ['user', 'created_at', 'event']

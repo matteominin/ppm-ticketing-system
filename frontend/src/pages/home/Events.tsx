@@ -8,6 +8,7 @@ interface Event {
     start_time: string;
     location: string;
     available_tickets: number;
+    description: string;
 }
 
 const EventCard = ({ event }: { event: Event }) => {
@@ -17,14 +18,13 @@ const EventCard = ({ event }: { event: Event }) => {
                 <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{event.name}</h5>
                     <p className="card-text">
+                        <strong>Description:</strong> {event.description}
+                    </p>
+                    <p className="card-text">
                         <strong>Date:</strong> {new Date(event.start_time).toLocaleDateString()}
                     </p>
                     <p className="card-text">
                         <strong>Location:</strong> {event.location}
-                    </p>
-                    <p className="card-text">
-                        <strong>Tickets:</strong>{" "}
-                        {event.available_tickets !== null ? event.available_tickets : 'N/A'}
                     </p>
                     <div className="mt-auto">
                         <Link to={`/event/${event.id}`} className="btn btn-primary w-100">

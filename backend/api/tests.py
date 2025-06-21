@@ -1,5 +1,5 @@
 from rest_framework.test import APITestCase
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.urls import reverse
 from .models import Event
@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 
 class EventTests(APITestCase):
     def setUp(self):
+        User = get_user_model()
         user = User.objects.create_user(username='testuser', password='testpass')
         Event.objects.create(
             name='Concert',

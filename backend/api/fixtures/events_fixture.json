@@ -1,0 +1,172 @@
+[
+    {
+        "model": "api.event",
+        "pk": 3,
+        "fields": {
+            "name": "Art Expo 2025",
+            "description": "A showcase of contemporary art by emerging artists.",
+            "location": "Downtown Gallery",
+            "start_time": "2025-09-10T10:00:00Z",
+            "end_time": "2025-09-12T18:00:00Z",
+            "organizer": 1,
+            "price": "25.00",
+            "total_tickets": 300,
+            "available_tickets": 300,
+            "created_at": "2025-06-21T08:00:00Z",
+            "updated_at": "2025-06-21T08:00:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 4,
+        "fields": {
+            "name": "Yoga Retreat",
+            "description": "A weekend of yoga and meditation in nature.",
+            "location": "Mountain Resort",
+            "start_time": "2025-07-20T07:00:00Z",
+            "end_time": "2025-07-22T19:00:00Z",
+            "organizer": 1,
+            "price": "150.00",
+            "total_tickets": 150,
+            "available_tickets": 150,
+            "created_at": "2025-06-21T08:30:00Z",
+            "updated_at": "2025-06-21T08:30:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 5,
+        "fields": {
+            "name": "Culinary Workshop",
+            "description": "Learn to cook gourmet meals with a professional chef.",
+            "location": "City Culinary School",
+            "start_time": "2025-10-05T14:00:00Z",
+            "end_time": "2025-10-05T18:00:00Z",
+            "organizer": 1,
+            "price": "75.00",
+            "total_tickets": 100,
+            "available_tickets": 100,
+            "created_at": "2025-06-21T09:00:00Z",
+            "updated_at": "2025-06-21T09:00:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 6,
+        "fields": {
+            "name": "Marathon 2025",
+            "description": "Annual city marathon, open for all runners.",
+            "location": "City Streets",
+            "start_time": "2025-11-01T06:00:00Z",
+            "end_time": "2025-11-01T15:00:00Z",
+            "organizer": 1,
+            "price": "40.00",
+            "total_tickets": 2000,
+            "available_tickets": 2000,
+            "created_at": "2025-06-21T09:30:00Z",
+            "updated_at": "2025-06-21T09:30:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 7,
+        "fields": {
+            "name": "Book Fair",
+            "description": "Meet authors and discover new books.",
+            "location": "Library Hall",
+            "start_time": "2025-09-25T10:00:00Z",
+            "end_time": "2025-09-27T18:00:00Z",
+            "organizer": 1,
+            "price": "10.00",
+            "total_tickets": 500,
+            "available_tickets": 500,
+            "created_at": "2025-06-21T10:00:00Z",
+            "updated_at": "2025-06-21T10:00:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 8,
+        "fields": {
+            "name": "Film Festival",
+            "description": "Screenings of independent films from around the world.",
+            "location": "Grand Cinema",
+            "start_time": "2025-10-15T12:00:00Z",
+            "end_time": "2025-10-20T22:00:00Z",
+            "organizer": 1,
+            "price": "60.00",
+            "total_tickets": 800,
+            "available_tickets": 800,
+            "created_at": "2025-06-21T10:30:00Z",
+            "updated_at": "2025-06-21T10:30:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 9,
+        "fields": {
+            "name": "Winter Gala",
+            "description": "A formal event with dinner and dancing.",
+            "location": "City Ballroom",
+            "start_time": "2025-12-10T19:00:00Z",
+            "end_time": "2025-12-11T01:00:00Z",
+            "organizer": 1,
+            "price": "120.00",
+            "total_tickets": 250,
+            "available_tickets": 250,
+            "created_at": "2025-06-21T11:00:00Z",
+            "updated_at": "2025-06-21T11:00:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 10,
+        "fields": {
+            "name": "Photography Workshop",
+            "description": "Hands-on photography lessons for beginners.",
+            "location": "Art Studio",
+            "start_time": "2025-08-05T09:00:00Z",
+            "end_time": "2025-08-05T16:00:00Z",
+            "organizer": 1,
+            "price": "80.00",
+            "total_tickets": 120,
+            "available_tickets": 120,
+            "created_at": "2025-06-21T11:30:00Z",
+            "updated_at": "2025-06-21T11:30:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 11,
+        "fields": {
+            "name": "Startup Pitch Night",
+            "description": "Pitch your startup idea to investors.",
+            "location": "Tech Hub",
+            "start_time": "2025-07-30T18:00:00Z",
+            "end_time": "2025-07-30T22:00:00Z",
+            "organizer": 1,
+            "price": "30.00",
+            "total_tickets": 300,
+            "available_tickets": 300,
+            "created_at": "2025-06-21T12:00:00Z",
+            "updated_at": "2025-06-21T12:00:00Z"
+        }
+    },
+    {
+        "model": "api.event",
+        "pk": 12,
+        "fields": {
+            "name": "Charity Auction",
+            "description": "Auction items to raise money for charity.",
+            "location": "Community Center",
+            "start_time": "2025-11-15T17:00:00Z",
+            "end_time": "2025-11-15T21:00:00Z",
+            "organizer": 1,
+            "price": "20.00",
+            "total_tickets": 150,
+            "available_tickets": 150,
+            "created_at": "2025-06-21T12:30:00Z",
+            "updated_at": "2025-06-21T12:30:00Z"
+        }
+    }
+]

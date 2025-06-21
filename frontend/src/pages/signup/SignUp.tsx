@@ -9,6 +9,8 @@ export default function Signup() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
@@ -26,7 +28,7 @@ export default function Signup() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, username, password }),
+                body: JSON.stringify({ email, username, password, phone_number: phone, address }),
             });
 
             if (response.ok) {
@@ -34,8 +36,7 @@ export default function Signup() {
                 navigate("/login"); // TODO: autmatically login user after signup
             } else {
                 const errorData = await response.json();
-                const errorMsg =
-                    errorData.detail || Object.values(errorData).flat().join(' ') || '❌ Signup failed.';
+                const errorMsg = errorData.detail || Object.values(errorData).flat().join(' ') || '❌ Signup failed.';
                 setMessage(errorMsg);
             }
         } catch (err) {
@@ -71,6 +72,26 @@ export default function Signup() {
                                             value={username}
                                             onChange={e => setUsername(e.target.value)}
                                             required
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">Phone Number</label>
+                                        <input
+                                            type="tel"
+                                            className="form-control"
+                                            value={phone}
+                                            onChange={e => setPhone(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="form-label">Address <span className="text-muted">(optional)</span></label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            value={address}
+                                            onChange={e => setAddress(e.target.value)}
+                                            placeholder="Enter your address"
                                         />
                                     </div>
                                     <div className="mb-3">

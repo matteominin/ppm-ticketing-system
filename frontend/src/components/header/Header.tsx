@@ -12,8 +12,9 @@ const Header = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
         setIsLoggedIn(false);
-        navigate('/login'); // Redirect to login after logout
+        navigate('/');
     };
 
     return (
