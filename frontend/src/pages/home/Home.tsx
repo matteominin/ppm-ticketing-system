@@ -1,11 +1,13 @@
 import Header from '../../components/header/Header.tsx'
-import Events from './Events.tsx'
+import Notification from '../../components/notification/Notification.tsx'
+import Events from './components/Events.tsx'
 
 const Home = () => {
     return (
         <>
             <Header />
             <Events />
+            <Notification />
         </>
     )
 }
