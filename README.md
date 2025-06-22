@@ -4,8 +4,10 @@
 Università di Firenze - 2025
 
 **Autore:** Matteo Minin
+
 **Matricola:** 7112938
-**Demo Host:** TODO add url
+
+**Demo Host:** https://ppm-ticketing-system.vercel.app/
 
 ## Descrizione del Progetto
 
@@ -26,9 +28,8 @@ Per testare l'applicazione in modo rapido, si può usare il segueste account:
 - password: test
 
 ### Deployment
-TODO: fix
-- fronted: [url]
-- backend: [Inserire URL backend se disponibile]
+- fronted: https://ppm-ticketing-system.vercel.app/
+- backend: https://ppm-ticketing-system-production.up.railway.app/
 
 ## Architettura del Sistema
 
@@ -41,7 +42,7 @@ TODO: fix
 
 ### Frontend
 
-- **Framework:** React
+- **Framework:** React + Bootstrap
 - **Deployment:** Vercel
 
 ## Documentazione API
