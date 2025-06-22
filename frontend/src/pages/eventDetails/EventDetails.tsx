@@ -73,7 +73,7 @@ const EventDetails = () => {
     const handleReserve = () => {
         const token = localStorage.getItem('access_token');
         if (!token) {
-            setMessage('You must be logged in to buy tickets.');
+            navigate('/login');
             return;
         }
 
