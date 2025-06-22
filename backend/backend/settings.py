@@ -90,10 +90,21 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+if 'DATABASE_URL' not in os.environ:
+    # Build DATABASE_URL from Railway provided vars
+    pg_user = os.getenv('PGUSER')
+    pg_pass = os.getenv('PGPASSWORD')
+    pg_host = os.getenv('PGHOST')
+    pg_port = os.getenv('PGPORT')
+    pg_db = os.getenv('PGDATABASE')
+
+    if all([pg_user, pg_pass, pg_host, pg_port, pg_db]):
+        os.environ['DATABASE_URL'] = (
+            f"postgres://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{pg_db}"
+        )
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL')
-    )
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
