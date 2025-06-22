@@ -71,7 +71,7 @@ MIDDLEWARE = [
 ALLOWED_HOSTS = [
     'localhost',
     'ppm-ticketing-system-production.up.railway.app',
-    'https://ppm-ticketing-system.vercel.app/'
+    'ppm-ticketing-system.vercel.app'
 ]
 
 ALLOWED_HOSTS = ['']
