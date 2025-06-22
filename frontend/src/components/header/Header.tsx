@@ -21,7 +21,7 @@ const Header = () => {
     };
     return (
         <nav className="navbar navbar-expand-lg navbar-dark shadow-sm" style={{
-            backgroundColor: 'rgba(18, 87, 143, 0.8)',
+            backgroundColor: 'rgb(18, 87, 143)',
             position: 'sticky',
             top: 0,
             zIndex: 1000
