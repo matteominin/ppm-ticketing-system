@@ -68,11 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ALLOWED_HOSTS = [
-    'localhost',
-    'ppm-ticketing-system-production.up.railway.app',
-    'ppm-ticketing-system.vercel.app'
-]
+ALLOWED_HOSTS = ['*']
 
 ALLOWED_HOSTS = ['']
 
