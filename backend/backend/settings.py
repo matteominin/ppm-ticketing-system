@@ -68,6 +68,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://ppm-ticketing-system.vercel.app',
+]
+
 ALLOWED_HOSTS = [
     'localhost',
     'ppm-ticketing-system-production.up.railway.app',
